@@ -14,6 +14,11 @@ import java.util.Timer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class Animations {
 
+    /**
+     * This is a default animation that runs if no animation.js has been found.
+     *
+     * @param matrixFrame MatrixFrame instance created on application run.
+     */
     public static void runAnimation(MatrixFrame matrixFrame) {
         MatrixScene matrixScene1 = new MatrixScene(Color.GREEN);
         MatrixScene matrixScene2 = new MatrixScene(Color.RED);

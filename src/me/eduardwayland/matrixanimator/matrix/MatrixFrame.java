@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
 
+/**
+ * This is the object representing the panel where the matrix animation plays in.
+ */
 @Getter
 public class MatrixFrame extends JPanel {
 
@@ -22,27 +25,50 @@ public class MatrixFrame extends JPanel {
     /*
     Methods
      */
+
+    /**
+     * Repaints the matrix with the possible new matrix attributes.
+     */
     private void redefineMatrix() {
         matrix = new int[rows][cols];
         repaint();
     }
 
+    /**
+     * Sets the new matrix rows amount and repaints the matrix if the amount is different than the current one.
+     *
+     * @param rows the amount of rows.
+     */
     public void setRows(int rows) {
         if (this.rows == rows) return;
         this.rows = rows;
         redefineMatrix();
     }
 
+    /**
+     * Sets the new matrix columns amount and repaints the matrix if the amount is different than the current one.
+     *
+     * @param cols the amount of rows.
+     */
     public void setCols(int cols) {
         if (this.cols == cols) return;
         this.cols = cols;
         redefineMatrix();
     }
 
+    /**
+     * @param matrixScene the new MatrixScene instance.
+     */
     public void addMatrixScene(MatrixScene matrixScene) {
+        if (scenes.contains(matrixScene)) return;
         scenes.add(matrixScene);
     }
 
+    /**
+     * Adds the cell that is going to be painted.
+     *
+     * @param matrixPoint the cell instance.
+     */
     public void addPoint(MatrixPoint matrixPoint) {
         points.add(matrixPoint);
         repaint();
@@ -52,7 +78,7 @@ public class MatrixFrame extends JPanel {
     Overriden Methods
      */
     @Override
-    public void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         // Width and Height must be 10% of the entire window

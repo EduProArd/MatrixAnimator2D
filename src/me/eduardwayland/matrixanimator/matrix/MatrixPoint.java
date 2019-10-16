@@ -5,6 +5,9 @@ import lombok.Getter;
 
 import java.awt.*;
 
+/**
+ * An object representing the coordinates and the color of a matrix cell
+ */
 @Getter
 @AllArgsConstructor
 public final class MatrixPoint {
